@@ -34,9 +34,9 @@ export function HomeHero() {
           <Eyebrow light>{hero.eyebrow}</Eyebrow>
         </Reveal>
         <h1 className="mt-6 font-serif text-[3.4rem] leading-[0.95] font-light tracking-tight sm:text-7xl md:text-8xl lg:text-[8.5rem]">
-          <WordReveal text="General Contractor" delay={0.15} />
+          <WordReveal text="Cross Point" delay={0.15} />
           <br />
-          <WordReveal text="Co." delay={0.35} className="text-white/90 italic" />
+          <WordReveal text="Construction" delay={0.35} className="text-white/90 italic" />
         </h1>
         <Reveal delay={0.7}>
           <p className="mt-7 max-w-xl text-xl leading-relaxed text-white/85 md:text-2xl">{hero.sub}</p>

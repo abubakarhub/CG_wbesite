@@ -68,14 +68,14 @@ export function ChatPanel({
         className,
       )}
       role="region"
-      aria-label="GC AI Assistant demo"
+      aria-label="CPC AI Assistant demo"
     >
       <div className="on-dark flex items-center gap-3 bg-ink px-5 py-4 text-white">
         <span className="grid size-10 place-items-center rounded-full bg-brass/20 text-brass">
           <Bot className="size-5" />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="font-serif text-lg leading-tight">GC AI Assistant</p>
+          <p className="font-serif text-lg leading-tight">CPC AI Assistant</p>
           <p className="text-xs text-white/70">{aiBrain.demoLabel}</p>
         </div>
         {onClose && (
@@ -239,7 +239,7 @@ export function ChatWidget() {
         className="group fixed right-4 bottom-4 z-[60] flex items-center gap-2.5 rounded-full bg-ink py-3 pr-5 pl-3 text-bone shadow-[0_20px_50px_-15px_rgba(18,21,26,0.6)] sm:right-6 sm:bottom-6"
         aria-expanded={open}
         data-chat-launcher
-        aria-label={open ? "Close GC AI Assistant" : "Open GC AI Assistant (demo)"}
+        aria-label={open ? "Close CPC AI Assistant" : "Open CPC AI Assistant (demo)"}
       >
         <span className="relative grid size-10 place-items-center rounded-full bg-brass text-ink">
           {open ? <X className="size-5" /> : <MessageCircle className="size-5" />}
@@ -247,7 +247,7 @@ export function ChatWidget() {
         </span>
         <span className="text-left leading-tight">
           <span className="flex items-center gap-1 text-sm font-semibold">
-            Ask GC AI <Sparkles className="size-3.5 text-brass" />
+            Ask CPC AI <Sparkles className="size-3.5 text-brass" />
           </span>
           <span className="block text-[0.7rem] text-bone/70">AI demo</span>
         </span>

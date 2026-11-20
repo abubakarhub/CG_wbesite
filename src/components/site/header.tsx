@@ -20,11 +20,11 @@ export function Logo({ light = false }: { light?: boolean }) {
         aria-hidden
         title={company.logo}
       >
-        GC
+        CPC
       </span>
       <span className="flex flex-col leading-none">
         <span className={cn("font-serif text-lg font-medium", light ? "text-white" : "text-ink")}>
-          General
+          Cross Point
         </span>
         <span
           className={cn(
@@ -32,7 +32,7 @@ export function Logo({ light = false }: { light?: boolean }) {
             light ? "text-white/70" : "text-slate-ink",
           )}
         >
-          Contractor Co.
+          Construction
         </span>
       </span>
     </span>
@@ -80,7 +80,7 @@ export function Header() {
           className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 md:px-8"
           aria-label="Main"
         >
-          <Link href="/" aria-label="General Contractor Co. home" className="shrink-0">
+          <Link href="/" aria-label="Cross Point Construction home" className="shrink-0">
             <Logo light={light} />
           </Link>
 

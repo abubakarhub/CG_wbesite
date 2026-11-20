@@ -122,7 +122,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
       <header className="z-40 border-b-2 border-border bg-bone px-4 py-3 lg:sticky lg:top-0">
         <div className="flex flex-wrap items-center gap-3">
           <div className="shrink-0">
-            <p className="font-semibold">General Contractor Co.</p>
+            <p className="font-semibold">Cross Point Construction</p>
             <p className="dash-title whitespace-nowrap">Project dashboard</p>
           </div>
           <p className="dash-badge rounded-xl border-2 border-dashed border-[#7a1f18] bg-[#fde8e4] px-3 py-2 text-[#7a1f18]">

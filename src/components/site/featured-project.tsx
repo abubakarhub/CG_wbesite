@@ -57,7 +57,7 @@ export function FeaturedProject({ detailed = false }: { detailed?: boolean }) {
                   <Ph text={featuredProject.quote} />
                 </p>
                 <p className="mt-3 text-sm text-white/60">
-                  <Ph text="[Owner name]" />, General Contractor Co.
+                  <Ph text="[Owner name]" />, Cross Point Construction
                 </p>
               </Reveal>
               <ul className="mt-8 grid gap-3">

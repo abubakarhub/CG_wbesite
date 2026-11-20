@@ -1,8 +1,8 @@
-# General Contractor Co.: website prototype
+# Cross Point Construction: website prototype
 
-A clickable prototype website for **General Contractor Co.**, a generic sample builder. It shows what a website, a project dashboard and a personal AI assistant could look like for a general contractor.
+A clickable prototype website for **Cross Point Construction**. It shows what a website, a project dashboard and a personal AI assistant could look like for a general contractor.
 
-This is a demo. It is not deployed, the contact form sends nothing, the dashboard uses example data, and the AI assistant uses scripted answers (no AI service, no API keys). Every name, address, phone number, email and project is fictional.
+This is a demo. It is not deployed, the contact form sends nothing, the dashboard uses example data, and the AI assistant uses scripted answers (no AI service, no API keys). Apart from the company name, every name, address, phone number, email and project is fictional.
 
 ## Run it locally
 
@@ -28,7 +28,7 @@ Other commands: `npm run build` (production build), `npm run lint`.
 | `/reviews` | Empty state. No reviews are shown until real ones exist |
 | `/contact` | Demo project form, sample (555) phone and example.com email, map placeholder |
 | `/dashboard` | Project dashboard in its own layout (DEMO DATA). Marketing links labeled Open Project Dashboard open it in a new tab |
-| `/ai` | GC AI Assistant preview. The "Ask GC AI" floating button works on the other marketing pages |
+| `/ai` | CPC AI Assistant preview. The "Ask CPC AI" floating button works on the other marketing pages |
 
 ## Editing content
 

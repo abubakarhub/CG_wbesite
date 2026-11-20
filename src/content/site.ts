@@ -5,8 +5,8 @@
  * - Anything wrapped in [square brackets] is a placeholder. The site
  *   automatically shows it with a dashed amber "placeholder" style, so it is
  *   easy to spot. Replace the whole string (brackets included) with real text.
- * - "General Contractor Co." is a generic demo brand. Every name, address,
- *   phone number, email and project here is fictional sample data.
+ * - "Cross Point Construction" is the company name. Every other name,
+ *   address, phone number, email and project here is fictional sample data.
  * - No made-up reviews, project counts, years, prices or awards.
  * - Images under /public/images are generated placeholders, not real projects.
  */
@@ -14,8 +14,8 @@
 export type StatusTone = "done" | "progress" | "blocked";
 
 export const company = {
-  name: "General Contractor Co.",
-  legalName: "General Contractor Co. (sample company)",
+  name: "Cross Point Construction",
+  legalName: "Cross Point Construction",
   principal: "[Owner name]",
   principalTitle: "[Owner's title]",
   address: {
@@ -30,7 +30,7 @@ export const company = {
 };
 
 export const demoBanner =
-  "Demo website for a sample builder. Anything in [brackets] is a placeholder.";
+  "Demo website for Cross Point Construction. Anything in [brackets] is a placeholder.";
 
 export type NavItem = { href: string; label: string; short?: string; note?: string; newTab?: boolean };
 
@@ -45,7 +45,7 @@ export const nav: NavItem[] = [
 
 export const demoNav: NavItem[] = [
   { href: "/dashboard", label: "Open Project Dashboard", short: "Dashboard", note: "Demo", newTab: true },
-  { href: "/ai", label: "GC AI Assistant", short: "GC AI", note: "Demo" },
+  { href: "/ai", label: "CPC AI Assistant", short: "CPC AI", note: "Demo" },
 ];
 
 export const imagePlaceholderNote = "Placeholder image (not a real project).";
@@ -68,7 +68,7 @@ export const images = {
 export const home = {
   hero: {
     eyebrow: "Homes, apartments and renovations",
-    title: "General Contractor Co.",
+    title: "Cross Point Construction",
     sub: "A builder for new homes, apartments and renovations.",
     primaryCta: { label: "Start your project", href: "/contact" },
     secondaryCta: { label: "See a sample project", href: "/portfolio" },
@@ -104,7 +104,7 @@ export const home = {
     eyebrow: "The builder",
     title: "Meet the owner",
     body: "[Short intro from the owner: who they are and why they build]",
-    line: "[Owner name], General Contractor Co.",
+    line: "[Owner name], Cross Point Construction",
     cta: { label: "Read our story", href: "/about" },
   },
   finalCta: {
@@ -206,13 +206,13 @@ export const about = {
   intro: {
     eyebrow: "About",
     title: "Built on clear answers.",
-    sub: "General Contractor Co. is a sample builder used to demo this website.",
+    sub: "A demo website for Cross Point Construction.",
   },
   story: {
     title: "Our story",
     paragraphs: [
       "[How the owner got started in construction]",
-      "[Why they started General Contractor Co.]",
+      "[Why they started Cross Point Construction]",
       "[What clients can expect working with us]",
     ],
     yearsInBusiness: "[Years in business]",
@@ -299,7 +299,7 @@ export const demosTeaser = {
     },
     {
       href: "/ai",
-      title: "GC AI Assistant",
+      title: "CPC AI Assistant",
       body: "An assistant that answers questions about the company's work from verified facts, and says when it doesn't know.",
       icon: "bot",
       cta: "Open the preview",
@@ -312,13 +312,13 @@ export type ChatEntry = { keywords: string[]; answer: string; source: AnswerSour
 
 export const aiBrain = {
   intro: {
-    eyebrow: "GC AI Assistant preview",
+    eyebrow: "CPC AI Assistant preview",
     title: "An assistant that knows your work.",
     sub: "Ask about past projects and the business. It answers only from facts the owner has confirmed, shows where each answer comes from, and says so when it doesn't know.",
   },
   demoLabel: "Demo: scripted answers, no AI connected",
   greeting:
-    "Hi, I'm the GC AI Assistant (demo). Ask me about General Contractor Co.'s work. If I don't know something yet, I'll say so.",
+    "Hi, I'm the CPC AI Assistant (demo). Ask me about Cross Point Construction's work. If I don't know something yet, I'll say so.",
   unknown:
     "I don't know yet. The owner hasn't added that information. You can ask directly through the contact page.",
   unknownSource: "Not known yet" as AnswerSource,
@@ -392,5 +392,5 @@ export const aiBrain = {
 
 export const footer = {
   blurb: "A builder for new homes, apartments and renovations.",
-  legal: "Demo website for General Contractor Co., a sample company. Not a live website.",
+  legal: "Demo website for Cross Point Construction. Not a live website.",
 };

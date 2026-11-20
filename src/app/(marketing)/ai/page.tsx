@@ -5,7 +5,7 @@ import { Reveal } from "@/components/site/motion";
 import { PageHero } from "@/components/site/sections";
 import { aiBrain } from "@/content/site";
 
-export const metadata: Metadata = { title: "GC AI Assistant (Demo)" };
+export const metadata: Metadata = { title: "CPC AI Assistant (Demo)" };
 
 const points = [
   {
@@ -52,7 +52,7 @@ export default function AiPage() {
             </Reveal>
           ))}
           <Reveal as="li" delay={0.3} className="text-base text-slate-ink">
-            On every other page, the floating “Ask GC AI” button opens this same assistant.
+            On every other page, the floating “Ask CPC AI” button opens this same assistant.
           </Reveal>
         </ul>
         <Reveal delay={0.15}>

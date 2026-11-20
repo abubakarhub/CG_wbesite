@@ -12,14 +12,14 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "General Contractor Co. (Demo)",
-    template: "%s | General Contractor Co.",
+    default: "Cross Point Construction (Demo)",
+    template: "%s | Cross Point Construction",
   },
-  description: "Demo website for General Contractor Co., a sample builder for new homes, apartments and renovations.",
+  description: "Demo website for Cross Point Construction, a builder for new homes, apartments and renovations.",
   openGraph: {
-    title: "General Contractor Co. (Demo)",
-    description: "Demo website for General Contractor Co., a sample builder for new homes, apartments and renovations.",
-    siteName: "General Contractor Co.",
+    title: "Cross Point Construction (Demo)",
+    description: "Demo website for Cross Point Construction, a builder for new homes, apartments and renovations.",
+    siteName: "Cross Point Construction",
     type: "website",
   },
   robots: { index: false, follow: false },
