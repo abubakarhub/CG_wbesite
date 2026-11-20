@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-fraunces);
+  --font-serif: var(--font-fraunces);
+  --color-bone: #f5f2ec;
+  --color-sand: #ebe5da;
+  --color-ink: #12151a;
+  --color-ink-2: #1b2027;
+  --color-brass: #c9974a;
+  --color-brass-deep: #7d5a1e;
+  --color-slate-ink: #4f5660;
+  /* Outline for unselected dashboard controls; keeps 3:1 against bone and card. */
+  --color-control: #857a69;
+  --color-ok: #2f7d4f;
+  --color-warn: #a86a12;
+  --color-bad: #b23a2e;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+:root {
+  --background: #f5f2ec;
+  --foreground: #12151a;
+  --card: #fbf9f5;
+  --card-foreground: #12151a;
+  --popover: #fbf9f5;
+  --popover-foreground: #12151a;
+  --primary: #12151a;
+  --primary-foreground: #f5f2ec;
+  --secondary: #ebe5da;
+  --secondary-foreground: #12151a;
+  --muted: #ebe5da;
+  --muted-foreground: #4f5660;
+  --accent: #ebe5da;
+  --accent-foreground: #12151a;
+  --destructive: #b23a2e;
+  --border: #dcd4c6;
+  --input: #cfc6b6;
+  --ring: #7d5a1e;
+  --radius: 0.875rem;
+  --chart-1: #2f7d4f;
+  --chart-2: #a86a12;
+  --chart-3: #b23a2e;
+  --chart-4: #4f5660;
+  --chart-5: #12151a;
+  --sidebar: #fbf9f5;
+  --sidebar-foreground: #12151a;
+  --sidebar-primary: #12151a;
+  --sidebar-primary-foreground: #f5f2ec;
+  --sidebar-accent: #ebe5da;
+  --sidebar-accent-foreground: #12151a;
+  --sidebar-border: #dcd4c6;
+  --sidebar-ring: #7d5a1e;
+}
+
+html {
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+::selection {
+  background: #c9974a;
+  color: #12151a;
+}
+
+:focus-visible {
+  outline: 3px solid #c9974a;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(201, 151, 74, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 151, 74, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.placeholder-chip {
+  border: 1.5px dashed #a86a12;
+  background: rgba(201, 151, 74, 0.14);
+  color: inherit;
+  border-radius: 0.4em;
+  padding: 0.05em 0.4em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.on-dark .placeholder-chip {
+  border-color: #e0b56f;
+  background: rgba(224, 181, 111, 0.16);
+}
+
+@layer components {
+  .dash-shell {
+    background: #f5f2ec;
+    color: #12151a;
+    font-size: 1.075rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .dash-shell[data-text-size="large"] {
+    font-size: 1.3rem;
+  }
+  .dash-shell[data-text-size="extra"] {
+    font-size: 1.52rem;
+  }
+  .dash-shell h1,
+  .dash-shell h2,
+  .dash-shell h3,
+  .dash-shell .dash-title {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .dash-shell h1 {
+    font-size: 2em;
+  }
+  .dash-shell h2 {
+    font-size: 1.5em;
+  }
+  .dash-shell h3,
+  .dash-shell .dash-title {
+    font-size: 1.2em;
+  }
+  .dash-shell .dash-lead {
+    max-width: 40rem;
+    font-size: 1.28em;
+    line-height: 1.4;
+  }
+  .dash-shell .dash-metric {
+    font-family: var(--font-serif), Georgia, serif;
+    font-size: 2.5em;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .dash-shell .dash-kicker,
+  .dash-shell .dash-badge {
+    font-size: 0.8em;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .dash-shell .tap {
+    min-height: 3rem;
+  }
+  .dash-shell button,
+  .dash-shell input,
+  .dash-shell label {
+    font: inherit;
+  }
+  .dash-shell button,
+  .dash-shell label {
+    cursor: pointer;
+  }
+  .dash-shell .dash-text-link {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+  .dash-shell section {
+    scroll-margin-top: 8em;
+  }
+  .dash-shell input::placeholder {
+    color: #3a414b;
+    opacity: 1;
+  }
+}
