@@ -23,7 +23,7 @@ export default function ServicesPage() {
               as="li"
               key={s.key}
               id={s.key}
-              className="group grid scroll-mt-32 gap-8 rounded-[2rem] border border-border bg-card p-6 transition-shadow sm:p-8 duration-500 hover:shadow-[0_30px_60px_-35px_rgba(18,21,26,0.35)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-12"
+              className="group grid scroll-mt-32 gap-8 rounded-[2rem] border border-border bg-card p-6 transition-shadow duration-500 hover:shadow-[0_30px_60px_-35px_rgba(18,21,26,0.35)] sm:p-8 md:p-12 lg:grid-cols-[auto_1fr_auto] lg:items-center"
             >
               <div className="flex items-center gap-6">
                 <span className="font-serif text-6xl font-light text-brass-deep/70 md:text-7xl">0{i + 1}</span>
