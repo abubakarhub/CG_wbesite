@@ -28,7 +28,7 @@ Other commands: `npm run build` (production build), `npm run lint`.
 | `/reviews` | Empty state. No reviews are shown until real ones exist |
 | `/contact` | Demo project form, sample (555) phone and example.com email, map placeholder |
 | `/dashboard` | Project dashboard in its own layout (DEMO DATA). Marketing links labeled Open Project Dashboard open it in a new tab |
-| `/ai` | GC AI Assistant preview. The "Ask GC AI" floating button works on the marketing pages |
+| `/ai` | GC AI Assistant preview. The "Ask GC AI" floating button works on the other marketing pages |
 
 ## Editing content
 

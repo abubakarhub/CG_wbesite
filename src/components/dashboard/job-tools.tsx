@@ -476,7 +476,7 @@ export function AddItemForm({ projectId }: { projectId: string }) {
           value={text}
           onChange={(event) => setText(event.target.value)}
           enterKeyHint="done"
-          className="tap min-w-0 flex-1 rounded-2xl border-2 border-control bg-white px-4 text-ink"
+          className="tap w-0 min-w-0 flex-1 rounded-2xl border-2 border-control bg-white px-4 text-ink"
           placeholder="Type one thing that is missing, then press Enter"
         />
         <button type="submit" className="tap inline-flex items-center gap-2 rounded-full bg-[#8d2e24] px-5 font-semibold text-white">

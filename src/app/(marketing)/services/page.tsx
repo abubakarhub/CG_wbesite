@@ -23,7 +23,7 @@ export default function ServicesPage() {
               as="li"
               key={s.key}
               id={s.key}
-              className="group grid scroll-mt-32 gap-8 rounded-[2rem] border border-border bg-card p-8 transition-shadow duration-500 hover:shadow-[0_30px_60px_-35px_rgba(18,21,26,0.35)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-12"
+              className="group grid scroll-mt-32 gap-8 rounded-[2rem] border border-border bg-card p-6 transition-shadow sm:p-8 duration-500 hover:shadow-[0_30px_60px_-35px_rgba(18,21,26,0.35)] md:grid-cols-[auto_1fr_auto] md:items-center md:p-12"
             >
               <div className="flex items-center gap-6">
                 <span className="font-serif text-6xl font-light text-brass-deep/70 md:text-7xl">0{i + 1}</span>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
                 </span>
               </div>
               <div>
-                <h2 className="font-serif text-4xl text-ink md:text-5xl">{s.title}</h2>
+                <h2 className="font-serif text-3xl text-ink sm:text-4xl md:text-5xl">{s.title}</h2>
                 <p className="mt-3 text-xl text-ink/85">{s.summary}</p>
                 <p className="mt-3 text-lg text-slate-ink">
                   <Ph text={s.details} />

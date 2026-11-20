@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { aiBrain, type AnswerSource } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -191,6 +192,7 @@ export function ChatPanel({
 }
 
 export function ChatWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const launcherRef = useRef<HTMLButtonElement>(null);
@@ -210,6 +212,8 @@ export function ChatWidget() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
+
+  if (pathname === "/ai") return null;
 
   return (
     <>
