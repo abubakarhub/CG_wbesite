@@ -1,8 +1,8 @@
 # Cross Point Construction: website prototype
 
-A clickable prototype website for **Cross Point Construction**. It shows what a website, a project dashboard and a personal AI assistant could look like for a general contractor.
+A clickable prototype website for **Cross Point Construction LLC** (CPC), based in Oceanport, New Jersey. It shows what a website, a project dashboard and a personal AI assistant could look like for a general contractor.
 
-This is a demo. It is not deployed, the contact form sends nothing, the dashboard uses example data, and the AI assistant uses scripted answers (no AI service, no API keys). Apart from the company name, every name, address, phone number, email and project is fictional.
+This is a demo. It is not deployed, the contact form sends nothing, the dashboard uses example data, and the AI assistant uses scripted answers (no AI service, no API keys). The company facts are confirmed; the story, services and case study wording are drafts pending Bill's approval. The phone number, email and dashboard data are samples, and anything in [brackets] is a placeholder.
 
 ## Run it locally
 
@@ -22,9 +22,9 @@ Other commands: `npm run build` (production build), `npm run lint`.
 | Route | What it shows |
 | --- | --- |
 | `/` | Cinematic hero, trust strip, sample featured project, services preview, about teaser |
-| `/portfolio` | Sample case study (Linden Place) plus filterable grid of placeholder project cards |
-| `/services` | Sample services list and process |
-| `/about` | Story placeholder, local roots, sample values, credentials |
+| `/portfolio` | Long Branch case study (pending Bill's approval) plus filterable grid of placeholder project cards |
+| `/services` | Draft services list and sample process |
+| `/about` | Owner, draft story, local roots, draft values, credentials |
 | `/reviews` | Empty state. No reviews are shown until real ones exist |
 | `/contact` | Demo project form, sample (555) phone and example.com email, map placeholder |
 | `/dashboard` | Project dashboard in its own layout (DEMO DATA). Marketing links labeled Open Project Dashboard open it in a new tab |

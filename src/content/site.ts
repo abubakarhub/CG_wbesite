@@ -5,8 +5,10 @@
  * - Anything wrapped in [square brackets] is a placeholder. The site
  *   automatically shows it with a dashed amber "placeholder" style, so it is
  *   easy to spot. Replace the whole string (brackets included) with real text.
- * - "Cross Point Construction" is the company name. Every other name,
- *   address, phone number, email and project here is fictional sample data.
+ * - Company facts (name, Oceanport NJ location, NJ registration, BuildZoom
+ *   score, New Home Warranty listing, owner and the Long Branch case study)
+ *   are confirmed. The story, services and case study wording are drafts
+ *   pending Bill's approval. Phone, email and dashboard data are samples.
  * - No made-up reviews, project counts, years, prices or awards.
  * - Images under /public/images are generated placeholders, not real projects.
  */
@@ -15,14 +17,16 @@ export type StatusTone = "done" | "progress" | "blocked";
 
 export const company = {
   name: "Cross Point Construction",
-  legalName: "Cross Point Construction",
-  principal: "[Owner name]",
-  principalTitle: "[Owner's title]",
+  legalName: "Cross Point Construction LLC",
+  principal: "William “Bill” Mangan",
+  principalTitle: "[Owner title, confirm with Bill]",
+  principalRole:
+    "Bill leads field operations and superintendent work. He's hands-on on site and manages the crews. He works alongside Bem, who handles project management, numbers, finance and admin.",
   address: {
-    full: "123 Main Street, Anytown, USA (sample address)",
+    full: "Oceanport, New Jersey",
   },
   serviceArea: "[Service area]",
-  licenseNumber: "[License #]",
+  licenseNumber: "13VH08903400",
   tagline: "[Company tagline]",
   phone: "(555) 010-0100",
   email: "hello@example.com",
@@ -71,13 +75,13 @@ export const home = {
     title: "Cross Point Construction",
     sub: "A builder for new homes, apartments and renovations.",
     primaryCta: { label: "Start your project", href: "/contact" },
-    secondaryCta: { label: "See a sample project", href: "/portfolio" },
+    secondaryCta: { label: "See our work", href: "/portfolio" },
   },
   trust: [
     {
-      title: "Licensed contractor",
-      detail: "[License #]",
-      status: "pending",
+      title: "Registered NJ Home Improvement Contractor",
+      detail: `Registration ${company.licenseNumber}`,
+      status: "",
     },
     {
       title: "Insured",
@@ -85,26 +89,26 @@ export const home = {
       status: "pending",
     },
     {
-      title: "Local office",
-      detail: "123 Main Street, Anytown, USA (sample)",
+      title: "Based in Oceanport, NJ",
+      detail: "Monmouth County, Jersey Shore",
       status: "",
     },
   ],
   featuredIntro: {
     eyebrow: "Featured project",
-    title: "Linden Place",
-    sub: "Sample project",
+    title: "Long Branch rental building",
+    sub: "Pending Bill's approval",
   },
   servicesIntro: {
     eyebrow: "What we build",
     title: "The work, at a glance.",
-    sub: "Sample service list.",
+    sub: "Draft service list.",
   },
   aboutTeaser: {
     eyebrow: "The builder",
     title: "Meet the owner",
-    body: "[Short intro from the owner: who they are and why they build]",
-    line: "[Owner name], Cross Point Construction",
+    body: company.principalRole,
+    line: `${company.principal}, ${company.name}`,
     cta: { label: "Read our story", href: "/about" },
   },
   finalCta: {
@@ -115,19 +119,20 @@ export const home = {
 };
 
 export const featuredProject = {
-  name: "Linden Place",
-  address: "456 Sample Avenue, Anytown, USA (fictional)",
-  city: "Anytown",
+  name: "Long Branch rental building",
+  address: "Long Branch, New Jersey",
+  city: "Long Branch",
   category: "Multifamily",
   type: "Multifamily rental building",
-  safeLine: "A sample multifamily rental building, shown to demo how a finished project looks on the site.",
+  safeLine:
+    "A completed 53-unit, four-story multifamily rental building in Long Branch, NJ (2024), built by Bill with Bem.",
   roleNote: "[Our role on this project]",
   stats: [
-    { value: 24, label: "Units" },
-    { value: 3, label: "Stories" },
+    { value: 53, label: "Units" },
+    { value: 4, label: "Stories" },
     { value: 2024, label: "Completed", plain: true },
   ],
-  approvalNote: "Sample project. Swap in a real job and photos.",
+  approvalNote: "Pending Bill's approval of wording and photos",
   summary: "[Project description: scope, our role, what we're proud of]",
   quote: "[Owner quote here]",
   photos: "[Project photos]",
@@ -138,16 +143,14 @@ export const portfolio = {
   intro: {
     eyebrow: "Portfolio",
     title: "Work we can show you.",
-    sub: "One sample project is shown. Empty cards are ready for more.",
+    sub: "One case study so far, pending Bill's approval. Empty cards are ready for more.",
   },
-  filters: ["All", "Multifamily", "New construction", "Renovations"] as const,
+  filters: ["All", "Multifamily", "New construction", "Additions", "Remodeling"] as const,
   upcoming: [
-    { title: "[Finished house address]", category: "New construction" },
-    { title: "[Finished house address]", category: "New construction" },
-    { title: "[Current single-family job]", category: "New construction" },
-    { title: "[Project name]", category: "Renovations" },
-    { title: "[Other completed multifamily job]", category: "Multifamily" },
-    { title: "[Project name]", category: "Renovations" },
+    { title: "[Project name]", category: "New construction" },
+    { title: "[Project name]", category: "New construction" },
+    { title: "[Project name]", category: "Additions" },
+    { title: "[Project name]", category: "Remodeling" },
   ],
   upcomingNote: "[Project photo]",
 };
@@ -156,30 +159,30 @@ export const services = {
   intro: {
     eyebrow: "Services",
     title: "What we build.",
-    sub: "Sample service list.",
+    sub: "Draft service list, pending Bill's approval.",
   },
-  status: "Sample list",
+  status: "Draft",
   items: [
     {
       key: "new-construction",
       title: "New construction",
       icon: "home",
-      summary: "Ground-up homes, including single-family houses.",
+      summary: "Single-family homes and multifamily buildings.",
       details: "[Types of homes, typical scope, areas served]",
     },
     {
-      key: "multifamily",
-      title: "Multifamily",
-      icon: "building",
-      summary: "Apartment and multi-unit residential buildings.",
-      details: "[Multifamily work and our usual role]",
+      key: "additions",
+      title: "Home additions",
+      icon: "addition",
+      summary: "Additions to existing homes.",
+      details: "[Kinds of additions we take on]",
     },
     {
-      key: "renovations",
-      title: "Renovations",
+      key: "remodeling",
+      title: "Residential remodeling",
       icon: "hammer",
-      summary: "Remodeling and additions for existing homes.",
-      details: "[Kinds of renovation work we take on]",
+      summary: "Remodeling for existing homes.",
+      details: "[Kinds of remodeling work we take on]",
     },
     {
       key: "construction-management",
@@ -206,40 +209,53 @@ export const about = {
   intro: {
     eyebrow: "About",
     title: "Built on clear answers.",
-    sub: "A demo website for Cross Point Construction.",
+    sub: "Cross Point Construction LLC (CPC), a Jersey Shore builder based in Oceanport, New Jersey.",
   },
   story: {
     title: "Our story",
+    note: "Draft, pending Bill's approval",
     paragraphs: [
-      "[How the owner got started in construction]",
-      "[Why they started Cross Point Construction]",
-      "[What clients can expect working with us]",
+      "[How Bill got started in construction, ask Bill]",
+      "CPC is a hands-on, local Jersey Shore builder where the owner is on site, not behind a desk.",
+      "Clients can expect the owner on the job, straight answers, and work done to code.",
     ],
-    yearsInBusiness: "[Years in business]",
+    yearsInBusiness: "Since the mid-2010s [confirm exact year with Bill]",
     portrait: "[Photo of the owner]",
   },
   roots: {
     title: "Local roots",
-    body: "Our office is at 123 Main Street, Anytown, USA (sample address).",
+    body: "Oceanport, New Jersey, in Monmouth County on the Jersey Shore.",
     extra: "[Our connection to the area we serve]",
   },
   values: {
     title: "What we stand for",
-    note: "Sample values.",
+    note: "Draft, pending Bill's approval",
     items: [
-      { title: "Clear answers", body: "[How we communicate]" },
-      { title: "Clean, organized sites", body: "[How we run a job]" },
-      { title: "Done right", body: "[How we think about quality]" },
+      { title: "The owner on the job", body: "[How we run a job]" },
+      { title: "Straight answers", body: "[How we communicate]" },
+      { title: "Work done to code", body: "[How we think about quality]" },
     ],
   },
   credentials: {
     title: "Credentials",
     items: [
       {
-        label: "Contractor license",
-        value: "[License #]",
+        label: "NJ Home Improvement Contractor registration",
+        value: company.licenseNumber,
         detail: "",
-        status: "pending",
+        status: "",
+      },
+      {
+        label: "BuildZoom score",
+        value: "91",
+        detail: "Top 37% of NJ licensed contractors",
+        status: "",
+      },
+      {
+        label: "NJ New Home Warranty program",
+        value: "Listed since at least 2017",
+        detail: "0 defaults",
+        status: "",
       },
       {
         label: "Insurance",
@@ -324,7 +340,7 @@ export const aiBrain = {
   unknownSource: "Not known yet" as AnswerSource,
   suggestions: [
     "What have you built?",
-    "Tell me about Linden Place",
+    "Tell me about the Long Branch building",
     "Where are you based?",
     "Are you licensed?",
     "How long have you been in business?",
@@ -340,14 +356,20 @@ export const aiBrain = {
     },
     {
       keywords: ["years", "how long", "since when", "experience", "founded"],
-      answer: "I don't know yet. The owner hasn't added how long the company has been in business.",
-      source: "Not known yet",
+      answer:
+        "Cross Point Construction has been active since at least the mid-2010s. The exact year still needs to be confirmed with Bill.",
+      source: "Open question",
     },
     {
       keywords: ["phone", "call", "email", "reach", "contact"],
       answer:
         "This demo lists a sample phone number, (555) 010-0100, and a sample email, hello@example.com. For now, use the contact page.",
-      source: "Reported by the owner",
+      source: "Not known yet",
+    },
+    {
+      keywords: ["buildzoom", "score"],
+      answer: "Cross Point Construction has a BuildZoom score of 91, which puts it in the top 37% of NJ licensed contractors.",
+      source: "Public record",
     },
     {
       keywords: ["review", "testimonial", "rating"],
@@ -355,36 +377,43 @@ export const aiBrain = {
       source: "Not known yet",
     },
     {
-      keywords: ["linden", "units", "stories", "apartment", "rental"],
+      keywords: ["warranty"],
       answer:
-        "Linden Place is a fictional sample project used in this demo: a multifamily rental building with 24 units over 3 stories, completed in 2024.",
+        "Cross Point Construction has been listed with the NJ New Home Warranty program since at least 2017, with 0 defaults.",
+      source: "Public record",
+    },
+    {
+      keywords: ["long branch", "units", "stories", "apartment", "rental"],
+      answer:
+        "The Long Branch project is a completed 53-unit, four-story multifamily rental building in Long Branch, NJ (2024), built by Bill with Bem. Bill still needs to approve the write-up and photos.",
       source: "Reported by the owner",
     },
     {
       keywords: ["built", "projects", "past work", "portfolio", "work"],
       answer:
-        "The project I can tell you about is Linden Place, a sample multifamily building (24 units, 3 stories). Other projects haven't been added yet.",
+        "The project I can tell you about is a completed 53-unit, four-story multifamily rental building in Long Branch, NJ (2024). Other projects haven't been added yet.",
       source: "Reported by the owner",
     },
     {
       keywords: ["where", "located", "address", "office", "based", "area"],
-      answer: "This demo uses a sample address: 123 Main Street, Anytown, USA. The service area hasn't been added yet.",
+      answer:
+        "Cross Point Construction is based in Oceanport, New Jersey, in Monmouth County on the Jersey Shore. The service area hasn't been added yet.",
       source: "Reported by the owner",
     },
     {
       keywords: ["license", "licensed", "registration", "registered", "insured", "insurance"],
-      answer: "I don't know yet. The license number and insurance certificate haven't been added.",
-      source: "Not known yet",
+      answer: `Cross Point Construction LLC is a registered New Jersey Home Improvement Contractor (registration ${company.licenseNumber}). The insurance certificate hasn't been added yet.`,
+      source: "Public record",
     },
     {
-      keywords: ["owner", "who", "run", "ceo"],
-      answer: "I don't know yet. The owner's name and bio haven't been added.",
-      source: "Not known yet",
+      keywords: ["owner", "who", "run", "ceo", "bill", "bem"],
+      answer: `The owner is ${company.principal}. ${company.principalRole}`,
+      source: "Reported by the owner",
     },
     {
-      keywords: ["service", "renovation", "new home", "multifamily", "do you", "house", "home"],
+      keywords: ["service", "renovation", "remodel", "addition", "new home", "multifamily", "do you", "house", "home"],
       answer:
-        "The sample service list is new construction (including single-family homes), multifamily, renovations, and construction management.",
+        "The draft service list is new construction (single-family and multifamily), home additions, residential remodeling and construction management. Bill still needs to approve it.",
       source: "Open question",
     },
   ] as ChatEntry[],

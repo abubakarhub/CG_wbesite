@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     default: "Cross Point Construction (Demo)",
     template: "%s | Cross Point Construction",
   },
-  description: "Demo website for Cross Point Construction, a builder for new homes, apartments and renovations.",
+  description: "Demo website for Cross Point Construction LLC, a Jersey Shore builder based in Oceanport, New Jersey.",
   openGraph: {
     title: "Cross Point Construction (Demo)",
-    description: "Demo website for Cross Point Construction, a builder for new homes, apartments and renovations.",
+    description: "Demo website for Cross Point Construction LLC, a Jersey Shore builder based in Oceanport, New Jersey.",
     siteName: "Cross Point Construction",
     type: "website",
   },

@@ -1,5 +1,5 @@
 import { Camera, MapPin, Quote } from "lucide-react";
-import { featuredProject } from "@/content/site";
+import { company, featuredProject } from "@/content/site";
 import { BuildingDrawing } from "./building-drawing";
 import { Counter, DrawLine, Reveal } from "./motion";
 import { Ph } from "./ph";
@@ -57,7 +57,7 @@ export function FeaturedProject({ detailed = false }: { detailed?: boolean }) {
                   <Ph text={featuredProject.quote} />
                 </p>
                 <p className="mt-3 text-sm text-white/60">
-                  <Ph text="[Owner name]" />, Cross Point Construction
+                  {company.principal}, {company.name}
                 </p>
               </Reveal>
               <ul className="mt-8 grid gap-3">

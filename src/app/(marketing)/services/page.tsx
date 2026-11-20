@@ -38,7 +38,7 @@ export default function ServicesPage() {
                   <Ph text={s.details} />
                 </p>
               </div>
-              <ToConfirm>To confirm</ToConfirm>
+              <ToConfirm>{services.status}</ToConfirm>
             </Reveal>
           ))}
         </ol>

@@ -9,7 +9,7 @@ import { company, contact } from "@/content/site";
 export const metadata: Metadata = { title: "Contact" };
 
 const details = [
-  { Icon: MapPin, label: "Office", value: company.address.full },
+  { Icon: MapPin, label: "Location", value: company.address.full },
   { Icon: Phone, label: "Phone", value: company.phone },
   { Icon: Mail, label: "Email", value: company.email },
   { Icon: Clock, label: "Hours", value: contact.hours },

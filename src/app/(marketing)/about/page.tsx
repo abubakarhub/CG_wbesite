@@ -30,10 +30,14 @@ export default function AboutPage() {
           <SectionHeading eyebrow="The builder" title={about.story.title} />
           <Reveal delay={0.1}>
             <p className="mt-4 text-xl text-ink">
-              <Ph text={company.principal} />, <Ph text={company.principalTitle} />, {company.name}
+              <Ph text={company.principal} />, <Ph text={company.principalTitle} />, {company.legalName}
             </p>
+            <p className="mt-4 text-xl leading-relaxed text-slate-ink">{company.principalRole}</p>
           </Reveal>
-          <div className="mt-8 grid gap-5">
+          <Reveal delay={0.15} className="mt-8">
+            <ToConfirm>{about.story.note}</ToConfirm>
+          </Reveal>
+          <div className="mt-5 grid gap-5">
             {about.story.paragraphs.map((p, i) => (
               <Reveal key={i} delay={0.1 + i * 0.08}>
                 <p className="text-xl leading-relaxed text-slate-ink">
@@ -90,17 +94,19 @@ export default function AboutPage() {
       <section className="bg-sand/60">
         <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-28">
           <SectionHeading eyebrow="Trust" title={about.credentials.title} />
-          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+          <ul className="mt-12 grid gap-5 md:grid-cols-2">
             {about.credentials.items.map((c, i) => (
-              <Reveal as="li" key={c.label} delay={0.1 * i} className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-8">
+              <Reveal as="li" key={c.label} delay={0.1 * i} className="flex flex-col gap-3 rounded-3xl border border-border bg-card p-6 sm:p-8">
                 <p className="text-sm font-semibold tracking-wide text-slate-ink uppercase">{c.label}</p>
                 <p className="font-serif text-3xl text-ink">
                   <Ph text={c.value} />
                 </p>
                 {c.detail && <p className="text-base text-slate-ink">{c.detail}</p>}
-                <div className="mt-auto pt-2">
-                  <ToConfirm>{c.status}</ToConfirm>
-                </div>
+                {c.status && (
+                  <div className="mt-auto pt-2">
+                    <ToConfirm>{c.status}</ToConfirm>
+                  </div>
+                )}
               </Reveal>
             ))}
           </ul>

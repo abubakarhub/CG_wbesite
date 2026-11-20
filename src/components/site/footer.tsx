@@ -52,7 +52,7 @@ export function Footer() {
               <Ph text={company.email} />
             </span>
             <span className="mt-2 text-sm text-white/60">
-              License <Ph text={company.licenseNumber} />
+              NJ HIC registration <Ph text={company.licenseNumber} />
             </span>
           </address>
         </div>
