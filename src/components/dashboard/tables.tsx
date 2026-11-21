@@ -72,7 +72,7 @@ function SortButtons<K extends string>({
             type="button"
             onClick={() => onSort(column.key)}
             className={cn(
-              "tap inline-flex items-center gap-2 rounded-full border-2 px-4 font-semibold",
+              "tap inline-flex items-center gap-2 rounded-full border px-3.5 font-semibold",
               active ? "border-ink bg-ink text-bone" : "border-control bg-bone",
             )}
           >
@@ -116,7 +116,7 @@ function SortHeader<K extends string>({
 function ShowMore({ count, open, onToggle }: { count: number; open: boolean; onToggle: () => void }) {
   if (count <= 5) return null;
   return (
-    <button type="button" className="tap mt-3 rounded-full border-2 border-ink px-4 font-semibold" aria-expanded={open} onClick={onToggle}>
+    <button type="button" className="tap mt-3 rounded-full border border-ink px-4 font-semibold" aria-expanded={open} onClick={onToggle}>
       {open ? "Show fewer" : `Show all (${count})`}
     </button>
   );
@@ -170,7 +170,7 @@ export function TradeTable({
           />
           <ul className="grid gap-3 md:hidden">
             {visible.map((row) => (
-              <li key={row.id} className="rounded-2xl border-2 border-border bg-bone p-4">
+              <li key={row.id} className="rounded-2xl border border-border bg-bone p-4">
                 <p>
                   <span className="font-semibold">Trade: </span>
                   {row.trade}
@@ -189,7 +189,7 @@ export function TradeTable({
           <table className="hidden w-full border-collapse md:table">
             <caption className="sr-only">Trade coverage</caption>
             <thead>
-              <tr className="border-b-2 border-border">
+              <tr className="border-b border-ink/30">
                 <SortHeader label="Trade" column="trade" sortKey={sort.key} dir={sort.dir} onSort={sort.toggle} />
                 <SortHeader label="Status" column="status" status sortKey={sort.key} dir={sort.dir} onSort={sort.toggle} />
                 <th scope="col" className="p-2 text-left font-semibold">
@@ -258,7 +258,7 @@ export function FileTable({ rows }: { rows: FileRow[] }) {
           />
           <ul className="grid gap-3 md:hidden">
             {visible.map((row) => (
-              <li key={row.id} className="rounded-2xl border-2 border-border bg-bone p-4">
+              <li key={row.id} className="rounded-2xl border border-border bg-bone p-4">
                 <p>
                   <span className="font-semibold">Name: </span>
                   {row.name}
@@ -281,7 +281,7 @@ export function FileTable({ rows }: { rows: FileRow[] }) {
           <table className="hidden w-full border-collapse md:table">
             <caption className="sr-only">Files and drawings</caption>
             <thead>
-              <tr className="border-b-2 border-border">
+              <tr className="border-b border-ink/30">
                 <SortHeader label="Name" column="name" sortKey={sort.key} dir={sort.dir} onSort={sort.toggle} />
                 <SortHeader label="What it is" column="kind" sortKey={sort.key} dir={sort.dir} onSort={sort.toggle} />
                 <SortHeader label="Status" column="status" status sortKey={sort.key} dir={sort.dir} onSort={sort.toggle} />
@@ -329,7 +329,7 @@ export function QuestionList({ rows }: { rows: OpenQuestion[] }) {
       ) : (
         <ul className="grid gap-3">
           {shown.map((row) => (
-            <li key={row.id} className="rounded-2xl border-2 border-border bg-bone p-4">
+            <li key={row.id} className="rounded-2xl border border-border bg-bone p-4">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3>{row.question}</h3>

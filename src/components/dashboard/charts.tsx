@@ -32,18 +32,18 @@ export function KpiCard({
   const meta = tone ? toneMeta[tone] : null;
   const Icon = meta?.Icon;
   return (
-    <li className={cn("flex flex-col gap-3 rounded-3xl border-2 p-5", meta ? meta.chip : "border-ink/25 bg-card text-ink")}>
-      <p className="flex items-start gap-2 font-semibold">
-        {Icon ? <Icon className="mt-0.5 size-6 shrink-0" aria-hidden /> : icon}
+    <li className={cn("flex flex-col gap-2.5 rounded-3xl border p-5 shadow-[0_16px_40px_-30px_rgba(18,21,26,0.35)]", meta ? meta.chip : "border-border bg-card text-ink")}>
+      <p className="flex items-start gap-2 text-[0.92em] font-semibold">
+        {Icon ? <Icon className="mt-0.5 size-5 shrink-0" aria-hidden /> : icon}
         <span>{label}</span>
       </p>
       <p className="dash-metric">{value}</p>
       {percent !== undefined ? (
-        <div className="h-3 overflow-hidden rounded-full bg-white/80 ring-1 ring-current" aria-hidden>
+        <div className="h-2 overflow-hidden rounded-full bg-white/80 ring-1 ring-current" aria-hidden>
           <div className="h-full rounded-full bg-current" style={{ width: `${percent}%` }} />
         </div>
       ) : null}
-      <p>{detail}</p>
+      <p className={cn("text-[0.92em]", !meta && "text-slate-ink")}>{detail}</p>
     </li>
   );
 }
@@ -63,7 +63,7 @@ export function JobProgressChart({ rows }: { rows: { project: Project; done: num
                 {percent}% · {done} of {total} steps done
               </span>
             </div>
-            <div className="mt-1 h-5 overflow-hidden rounded-full border-2 border-control bg-bone" aria-hidden>
+            <div className="mt-1.5 h-3.5 overflow-hidden rounded-full border border-border bg-bone" aria-hidden>
               <div className={cn("h-full", toneMeta[tone].bar)} style={{ width: `${percent}%` }} />
             </div>
           </li>
@@ -82,7 +82,7 @@ export function ScheduleChart({ list = projects }: { list?: Project[] }) {
   }));
   return (
     <div className="grid gap-4">
-      <div className="flex h-5 overflow-hidden rounded-full border-2 border-control bg-bone" aria-hidden>
+      <div className="flex h-3.5 overflow-hidden rounded-full border border-border bg-bone" aria-hidden>
         {counts.map(({ status, jobs }) =>
           jobs.length ? (
             <div key={status} className={toneMeta[scheduleTone(status)].bar} style={{ flexGrow: jobs.length }} />
@@ -91,7 +91,7 @@ export function ScheduleChart({ list = projects }: { list?: Project[] }) {
       </div>
       <ul className="grid gap-3" aria-label="Job status">
         {counts.map(({ status, jobs }) => (
-          <li key={status} className="flex flex-wrap items-center gap-3 rounded-2xl border-2 border-border bg-bone p-3">
+          <li key={status} className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-bone p-3">
             <StatusPill tone={scheduleTone(status)} label={`${scheduleLabel(status)}: ${jobs.length}`} />
             <span>{jobs.length ? jobs.map((project) => project.name).join(", ") : "No jobs"}</span>
           </li>

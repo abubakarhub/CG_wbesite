@@ -48,12 +48,12 @@ export function StatusPill({ tone, label, nowrap = false }: { tone: Tone; label?
   return (
     <span
       className={cn(
-        "inline-flex max-w-full items-center gap-2 rounded-full border-2 px-3 py-1.5 font-semibold",
+        "inline-flex max-w-full items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.88em] font-semibold",
         nowrap && "whitespace-nowrap [overflow-wrap:normal]",
         meta.chip,
       )}
     >
-      <Icon className="size-5 shrink-0" aria-hidden />
+      <Icon className="size-4 shrink-0" aria-hidden />
       <span>{label ?? meta.label}</span>
     </span>
   );
@@ -72,8 +72,8 @@ export function ColorKey({ compact = false }: { compact?: boolean }) {
               ? "Yellow means it needs a look"
               : "Green means it is on hand or done";
         return (
-          <li key={tone} className={cn("flex items-center gap-2 rounded-2xl border-2 px-3 py-2 font-semibold", meta.chip)}>
-            <Icon className="size-5 shrink-0" aria-hidden />
+          <li key={tone} className={cn("flex items-center gap-2 rounded-xl border px-3 py-1.5 text-[0.92em] font-semibold", meta.chip)}>
+            <Icon className="size-4 shrink-0" aria-hidden />
             <span>{compact ? meta.label : sentence}</span>
           </li>
         );
@@ -119,14 +119,14 @@ export function CoverageChart({
           const label = `${tradeLabel(segment.status)}: ${counts[segment.status]}`;
           const pressed = selected === segment.status;
           const className = cn(
-            "tap inline-flex w-full items-center justify-center gap-2 rounded-2xl border-2 px-3 text-center font-semibold sm:min-w-[8rem] sm:flex-1",
+            "tap inline-flex w-full items-center justify-center gap-2 rounded-full border px-3 text-center font-semibold sm:min-w-[8rem] sm:flex-1",
             meta.bar,
-            pressed && "outline outline-4 outline-offset-2 outline-ink",
+            pressed && "outline outline-2 outline-offset-2 outline-ink",
           );
           const style = { flexGrow: Math.max(counts[segment.status], 1) };
           const inner = (
             <>
-              <Icon className="size-5 shrink-0" aria-hidden />
+              <Icon className="size-4 shrink-0" aria-hidden />
               <span>{label}</span>
             </>
           );
@@ -177,11 +177,11 @@ export function FilterGroup<T extends string>({
             aria-pressed={selected}
             onClick={() => onChange(option.value)}
             className={cn(
-              "tap inline-flex items-center gap-2 rounded-full border-2 px-4 font-semibold",
+              "tap inline-flex items-center gap-2 rounded-full border px-3.5 font-semibold",
               selected ? "border-ink bg-ink text-bone" : "border-control bg-bone text-ink",
             )}
           >
-            {selected ? <Check className="size-5" aria-hidden /> : null}
+            {selected ? <Check className="size-4" aria-hidden /> : null}
             {option.label}
           </button>
         );
@@ -211,7 +211,7 @@ export function ToneChooser({
             <label
               key={tone}
               className={cn(
-                "tap inline-flex cursor-pointer items-center gap-2 rounded-full border-2 px-3 font-semibold",
+                "tap inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 font-semibold",
                 selected ? meta.chip : "border-control bg-bone text-ink",
               )}
             >
@@ -221,9 +221,9 @@ export function ToneChooser({
                 value={tone}
                 checked={selected}
                 onChange={() => onChange(tone)}
-                className="size-5"
+                className="size-4"
               />
-              <Icon className="size-5 shrink-0" aria-hidden />
+              <Icon className="size-4 shrink-0" aria-hidden />
               {meta.label}
             </label>
           );
@@ -251,7 +251,7 @@ export function ShowList<T>({
     <div>
       <ul className="grid gap-3">
         {visible.map((item) => (
-          <li key={getKey(item)} className="rounded-2xl border-2 border-border bg-bone p-4">
+          <li key={getKey(item)} className="rounded-2xl border border-border bg-bone p-4">
             {render(item)}
           </li>
         ))}
@@ -259,7 +259,7 @@ export function ShowList<T>({
       {items.length > 5 ? (
         <button
           type="button"
-          className="tap mt-3 rounded-full border-2 border-ink px-4 font-semibold"
+          className="tap mt-3 rounded-full border border-ink px-4 font-semibold"
           aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
         >
@@ -289,13 +289,13 @@ export function Panel({
     <section
       aria-labelledby={`${id}-heading`}
       id={id}
-      className={cn("rounded-3xl border-2 bg-card p-5 md:p-6", meta ? cn(meta.chip, "bg-card") : "border-border")}
+      className="dash-card p-5 md:p-6"
     >
       <h2 id={`${id}-heading`} className={cn(Icon && "flex items-center gap-2")}>
-        {Icon ? <Icon className="size-7 shrink-0" aria-hidden /> : null}
+        {Icon && meta ? <Icon className={cn("size-6 shrink-0", meta.text)} aria-hidden /> : null}
         {title}
       </h2>
-      {intro ? <p className="mt-2 max-w-[44rem]">{intro}</p> : null}
+      {intro ? <p className="mt-1.5 max-w-[44rem] text-slate-ink">{intro}</p> : null}
       <div className="mt-4">{children}</div>
     </section>
   );

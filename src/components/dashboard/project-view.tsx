@@ -85,16 +85,16 @@ function AskBox({ project, openBlockers }: { project: Project; openBlockers: { t
         name="question"
         value={question}
         onChange={(event) => setQuestion(event.target.value)}
-        className="tap w-full rounded-2xl border-2 border-ink/40 bg-white px-4 text-ink"
+        className="tap w-full rounded-2xl border border-control bg-white px-4 text-ink"
         placeholder="Example: What should we do next?"
       />
-      <button type="submit" className="tap w-fit rounded-full bg-ink px-6 font-semibold text-bone">
+      <button type="submit" className="tap w-fit rounded-full bg-ink px-5 font-semibold text-bone">
         Ask
       </button>
       <div aria-live="polite" aria-atomic="true">
         {hint ? <p className="font-semibold">{hint}</p> : null}
         {answer ? (
-          <div className="rounded-2xl border-2 border-dashed border-[#6d4a10] bg-[#f8efd4] p-4 text-[#3f2a08]">
+          <div className="rounded-2xl border border-dashed border-[#6d4a10] bg-[#f8efd4] p-4 text-[#3f2a08]">
             <p className="font-bold">Demo response — not connected to live files.</p>
             <p className="mt-2">{answer}</p>
           </div>
@@ -143,8 +143,8 @@ export function ProjectView({ project: baseProject, initialCoverage }: { project
         </div>
         <p className="dash-lead">{project.summary}</p>
         <p>Sample lead: {project.ownerName}</p>
-        <p>{colorHelp}</p>
-        <p className="font-semibold">Changes save on this browser by themselves. Look for “Saved ✓”.</p>
+        <p className="text-slate-ink">{colorHelp}</p>
+        <p className="text-slate-ink">Changes save on this browser by themselves. Look for “Saved ✓”.</p>
       </header>
 
       <JobStatusButtons projectId={project.id} current={status} />
@@ -217,7 +217,7 @@ export function ProjectView({ project: baseProject, initialCoverage }: { project
         </Panel>
       </div>
 
-      <h2 className="border-t-2 border-border pt-6">More detail</h2>
+      <h2 className="border-t border-border pt-6">More detail</h2>
 
       <Panel id="blockers" title="Blockers and who owns them" intro="Change a status to try the demo. The choice stays on this browser.">
         <ShowList
@@ -273,7 +273,7 @@ export function ProjectView({ project: baseProject, initialCoverage }: { project
       <Panel id="vendors" title="Vendors and trades" intro="Sample company names. Not real vendors.">
         <ul className="grid gap-3">
           {forProject(vendors, project.id).map((row) => (
-            <li key={row.id} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-border bg-bone p-4">
+            <li key={row.id} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-bone p-4">
               <div>
                 <h3>{row.name}</h3>
                 <p className="mt-1">Work: {row.work}</p>
@@ -287,7 +287,7 @@ export function ProjectView({ project: baseProject, initialCoverage }: { project
       <Panel id="deadlines" title="Deadlines" intro="What is due, and what is still open. These are sample targets, not a client schedule.">
         <ul className="grid gap-3">
           {forProject(deadlines, project.id).map((row) => (
-            <li key={row.id} className="flex flex-wrap items-start justify-between gap-3 rounded-2xl border-2 border-border bg-bone p-4">
+            <li key={row.id} className="flex flex-wrap items-start justify-between gap-3 rounded-2xl border border-border bg-bone p-4">
               <div>
                 <h3>{row.label}</h3>
                 <p className="mt-1">When: {row.whenLabel}</p>

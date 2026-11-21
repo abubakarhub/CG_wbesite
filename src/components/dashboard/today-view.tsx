@@ -42,7 +42,7 @@ function JobsOverview({ rows }: { rows: JobRow[] }) {
           <li key={row.project.id}>
             <Link
               href={`/dashboard/${row.project.id}`}
-              className="flex flex-col gap-3 rounded-2xl border-2 border-control bg-bone p-4"
+              className="flex flex-col gap-3 rounded-2xl border border-border bg-bone p-4 transition-colors hover:border-brass-deep/50"
             >
               <span className="dash-title">{row.project.name}</span>
               <span className="flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ function JobsOverview({ rows }: { rows: JobRow[] }) {
         <table className="w-full border-collapse text-left [overflow-wrap:normal]">
           <caption className="sr-only">Jobs overview. Open a job to see its details.</caption>
           <thead>
-            <tr className="border-b-2 border-ink/30">
+            <tr className="border-b border-ink/30">
               <th scope="col" className="min-w-[10rem] p-3 font-semibold">Job</th>
               <th scope="col" className="p-3 font-semibold">Status</th>
               <th scope="col" className="p-3 font-semibold">Progress</th>
@@ -84,7 +84,7 @@ function JobsOverview({ rows }: { rows: JobRow[] }) {
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.project.id} className="border-b-2 border-border align-top">
+              <tr key={row.project.id} className="border-b border-border align-top">
                 <th scope="row" className="p-3 text-left font-normal">
                   <Link
                     href={`/dashboard/${row.project.id}`}
@@ -174,7 +174,7 @@ export function TodayView() {
       </section>
 
       <div className="grid gap-4">
-        <section aria-labelledby="summary-heading" className="rounded-3xl border-2 border-ink/25 bg-card p-5">
+        <section aria-labelledby="summary-heading" className="dash-card p-5 md:p-6">
           <h2 id="summary-heading" className="dash-title">
             Executive summary
           </h2>
@@ -189,7 +189,7 @@ export function TodayView() {
             ))}
           </ul>
         </section>
-        <p>{colorHelp}</p>
+        <p className="text-slate-ink">{colorHelp}</p>
         <ColorKey />
       </div>
 
@@ -215,7 +215,7 @@ export function TodayView() {
               <li key={fact.id}>
                 <Link
                   href={`/dashboard/${fact.projectId}`}
-                  className="grid min-h-12 gap-2 rounded-2xl border-2 border-control bg-bone p-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
+                  className="grid min-h-12 gap-2 rounded-2xl border border-border bg-bone p-4 transition-colors hover:border-brass-deep/50 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
                 >
                   <span>
                     <span className="block font-semibold">{fact.projectName}</span>
@@ -233,17 +233,17 @@ export function TodayView() {
       <Panel
         id="checklist"
         title="Today's checklist"
-        intro="A suggested order for the day. Ticks stay on this browser until you reset the demo."
+        intro="A suggested order for the day. Ticks stay on this browser."
       >
         <ul className="grid gap-3">
           {checklist.map((item) => {
             const done = dash.isChecked(item.id, item.done);
             return (
               <li key={item.id}>
-                <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-2xl border-2 border-control bg-bone p-4">
+                <label className="flex min-h-12 cursor-pointer items-start gap-3 rounded-2xl border border-border bg-bone p-4">
                   <input
                     type="checkbox"
-                    className="mt-1 size-7 shrink-0"
+                    className="mt-0.5 size-5 shrink-0"
                     checked={done}
                     onChange={(event) => dash.setChecked(item.id, event.target.checked)}
                   />

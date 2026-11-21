@@ -57,16 +57,16 @@ export function JobStatusButtons({ projectId, current }: { projectId: string; cu
                 if (!pressed) save((job) => ({ ...job, status: option.status }));
               }}
               className={cn(
-                "flex min-h-16 flex-col items-start justify-center gap-1 rounded-2xl border-2 px-4 py-3 text-left",
+                "flex min-h-14 flex-col items-start justify-center gap-1 rounded-2xl border px-4 py-3 text-left",
                 pressed ? statusStyle[option.status].on : statusStyle[option.status].off,
-                pressed && "outline-4 outline-offset-2 outline-ink [outline-style:solid]",
+                pressed && "outline-2 outline-offset-2 outline-ink [outline-style:solid]",
               )}
             >
-              <span className="flex items-center gap-2 text-[1.2em] font-bold">
+              <span className="flex items-center gap-2 text-[1.05em] font-bold">
                 <span aria-hidden>{option.emoji}</span>
                 {option.label}
               </span>
-              <span>{pressed ? "✓ Chosen" : option.help}</span>
+              <span className="text-[0.9em]">{pressed ? "✓ Chosen" : option.help}</span>
             </button>
           );
         })}
@@ -162,25 +162,25 @@ export function FilesPanel({ projectId }: { projectId: string }) {
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
         className={cn(
-          "grid gap-3 rounded-3xl border-4 border-dashed p-5 text-center",
-          dragging ? "border-ink bg-sand" : "border-control bg-bone",
+          "grid gap-3 rounded-3xl border-2 border-dashed p-5 text-center",
+          dragging ? "border-ink bg-sand" : "border-border bg-bone",
         )}
       >
         <div className="flex flex-wrap justify-center gap-3">
           <button
             type="button"
             onClick={() => pickRef.current?.click()}
-            className="inline-flex min-h-16 items-center gap-3 rounded-full bg-ink px-6 text-[1.15em] font-bold text-bone"
+            className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ink px-5 font-semibold text-bone"
           >
-            <Plus className="size-7" aria-hidden />
+            <Plus className="size-5" aria-hidden />
             Add photo or file
           </button>
           <button
             type="button"
             onClick={() => cameraRef.current?.click()}
-            className="tap inline-flex items-center gap-2 rounded-full border-2 border-ink bg-card px-5 font-semibold text-ink"
+            className="tap inline-flex items-center gap-2 rounded-full border border-ink bg-card px-4 font-semibold text-ink"
           >
-            <Camera className="size-6" aria-hidden />
+            <Camera className="size-5" aria-hidden />
             Take a photo
           </button>
         </div>
@@ -220,7 +220,7 @@ export function FilesPanel({ projectId }: { projectId: string }) {
       ) : (
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-3" aria-label="Photos and files">
           {files.map((file) => (
-            <li key={file.id} className="flex flex-col overflow-hidden rounded-2xl border-2 border-control bg-bone">
+            <li key={file.id} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
               {file.kind === "image" && file.thumb ? (
                 // eslint-disable-next-line @next/next/no-img-element -- local data URL thumbnail
                 <img src={file.thumb} alt={file.name} className="aspect-square w-full object-cover" />
@@ -236,9 +236,9 @@ export function FilesPanel({ projectId }: { projectId: string }) {
               <button
                 type="button"
                 onClick={() => remove(file)}
-                className="tap m-2 inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#7a1f18] font-semibold text-[#7a1f18]"
+                className="tap m-2 inline-flex items-center justify-center gap-2 rounded-full border border-[#7a1f18] text-[0.92em] font-semibold text-[#7a1f18]"
               >
-                <Trash2 className="size-5" aria-hidden />
+                <Trash2 className="size-4" aria-hidden />
                 Remove
                 <span className="sr-only"> {file.name}</span>
               </button>
@@ -369,7 +369,7 @@ export function DailyLog({ projectId }: { projectId: string }) {
             aria-pressed={recording}
             onClick={() => (recording ? recRef.current?.stop() : startVoice())}
             className={cn(
-              "inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-full px-6 text-[1.15em] font-bold sm:w-fit",
+              "inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full px-5 font-semibold sm:w-fit",
               recording ? "bg-[#8d2e24] text-white" : "bg-ink text-bone",
             )}
           >
@@ -383,14 +383,14 @@ export function DailyLog({ projectId }: { projectId: string }) {
               </>
             ) : (
               <>
-                <span aria-hidden className="text-2xl leading-none">🎤</span>
+                <span aria-hidden className="text-xl leading-none">🎤</span>
                 Record a voice note
               </>
             )}
           </button>
           <div aria-live="polite">
             {recording ? (
-              <p className="rounded-2xl border-2 border-[#7a1f18] bg-[#fde8e4] p-4 text-[#7a1f18]">
+              <p className="rounded-2xl border border-[#7a1f18] bg-[#fde8e4] p-4 text-[#7a1f18]">
                 <span className="font-bold">Listening.</span> {heard || "Start talking. Tap the red button when you are done."}
               </p>
             ) : null}
@@ -398,7 +398,7 @@ export function DailyLog({ projectId }: { projectId: string }) {
           </div>
         </div>
       ) : (
-        <p className="rounded-2xl border-2 border-control bg-bone p-4">
+        <p className="rounded-2xl border border-border bg-bone p-4">
           Voice notes do not work in this browser. Type your note in the box below instead.
         </p>
       )}
@@ -412,11 +412,11 @@ export function DailyLog({ projectId }: { projectId: string }) {
           value={typed}
           onChange={(event) => setTyped(event.target.value)}
           rows={2}
-          className="min-h-12 w-full rounded-2xl border-2 border-control bg-white px-4 py-3 text-ink"
+          className="min-h-12 w-full rounded-2xl border border-control bg-white px-4 py-3 text-ink"
           placeholder="Example: Electrician came by. Form still not signed."
         />
-        <button type="submit" className="tap inline-flex w-fit items-center gap-2 rounded-full bg-ink px-6 font-semibold text-bone">
-          <Plus className="size-5" aria-hidden />
+        <button type="submit" className="tap inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 font-semibold text-bone">
+          <Plus className="size-4" aria-hidden />
           Add to log
         </button>
       </form>
@@ -426,7 +426,7 @@ export function DailyLog({ projectId }: { projectId: string }) {
       ) : (
         <ol className="grid gap-3" aria-label="Daily log, newest first">
           {logs.map((entry) => (
-            <li key={entry.id} className="flex flex-wrap items-start justify-between gap-3 rounded-2xl border-2 border-control bg-bone p-4">
+            <li key={entry.id} className="flex flex-wrap items-start justify-between gap-3 rounded-2xl border border-border bg-bone p-4">
               <div className="min-w-0 flex-1">
                 <p className="font-semibold">
                   <time dateTime={entry.at}>{formatWhen(entry.at)}</time> ·{" "}
@@ -437,9 +437,9 @@ export function DailyLog({ projectId }: { projectId: string }) {
               <button
                 type="button"
                 onClick={() => remove(entry)}
-                className="tap inline-flex items-center gap-2 rounded-full border-2 border-[#7a1f18] px-4 font-semibold text-[#7a1f18]"
+                className="tap inline-flex items-center gap-2 rounded-full border border-[#7a1f18] px-3.5 text-[0.92em] font-semibold text-[#7a1f18]"
               >
-                <Trash2 className="size-5" aria-hidden />
+                <Trash2 className="size-4" aria-hidden />
                 Remove
                 <span className="sr-only"> note from {formatWhen(entry.at)}</span>
               </button>
@@ -476,11 +476,11 @@ export function AddItemForm({ projectId }: { projectId: string }) {
           value={text}
           onChange={(event) => setText(event.target.value)}
           enterKeyHint="done"
-          className="tap w-0 min-w-0 flex-1 rounded-2xl border-2 border-control bg-white px-4 text-ink"
+          className="tap w-0 min-w-0 flex-1 rounded-2xl border border-control bg-white px-4 text-ink"
           placeholder="Type one thing that is missing, then press Enter"
         />
-        <button type="submit" className="tap inline-flex items-center gap-2 rounded-full bg-[#8d2e24] px-5 font-semibold text-white">
-          <Plus className="size-5" aria-hidden />
+        <button type="submit" className="tap inline-flex items-center gap-2 rounded-full bg-[#8d2e24] px-4 font-semibold text-white">
+          <Plus className="size-4" aria-hidden />
           Add
         </button>
       </div>
@@ -512,18 +512,18 @@ export function CustomItemToggle({
       className="flex min-h-12 w-full flex-wrap items-center justify-between gap-3 text-left"
     >
       <span>
-        <span className="block text-[1.1em] font-semibold">{title}</span>
-        <span className="mt-1 block underline">
+        <span className="block font-semibold">{title}</span>
+        <span className="mt-1 block text-[0.92em] underline">
           {onHand ? "Tap to move back to Missing" : "Tap when you have it"}
         </span>
       </span>
       <span
         className={cn(
-          "inline-flex items-center gap-2 rounded-full border-2 px-3 py-1.5 font-semibold",
+          "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.88em] font-semibold",
           onHand ? "border-[#145c34] bg-[#e5f4ea] text-[#145c34]" : "border-[#7a1f18] bg-[#fde8e4] text-[#7a1f18]",
         )}
       >
-        {onHand ? <Check className="size-5" aria-hidden /> : <span aria-hidden>●</span>}
+        {onHand ? <Check className="size-4" aria-hidden /> : <span aria-hidden>●</span>}
         {onHand ? "On hand" : "Missing"}
       </span>
     </button>

@@ -30,7 +30,7 @@ function UndoBar({ toast, onDone }: { toast: UndoToast; onDone: () => void }) {
 
   return (
     <div
-      className="pointer-events-auto flex flex-wrap items-center gap-3 rounded-2xl border-2 border-ink bg-ink px-4 py-3 text-bone shadow-lg"
+      className="pointer-events-auto flex flex-wrap items-center gap-3 rounded-2xl bg-ink px-4 py-3 text-bone shadow-lg"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -91,12 +91,12 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       <div className="pointer-events-none fixed inset-x-3 bottom-3 z-50 flex flex-col items-end gap-2 sm:left-auto sm:max-w-md">
         <div role="status" aria-live="polite" className="flex flex-col items-end gap-2">
           {savedAt ? (
-            <p className="pointer-events-auto inline-flex items-center gap-2 rounded-full border-2 border-[#145c34] bg-[#e5f4ea] px-4 py-2 font-semibold text-[#145c34] shadow-lg">
+            <p className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-[#145c34] bg-[#e5f4ea] px-4 py-2 font-semibold text-[#145c34] shadow-lg">
               Saved ✓
             </p>
           ) : null}
           {problemText ? (
-            <p className="pointer-events-auto inline-flex items-center gap-2 rounded-2xl border-2 border-[#7a1f18] bg-[#fde8e4] px-4 py-2 font-semibold text-[#7a1f18] shadow-lg">
+            <p className="pointer-events-auto inline-flex items-center gap-2 rounded-2xl border border-[#7a1f18] bg-[#fde8e4] px-4 py-2 font-semibold text-[#7a1f18] shadow-lg">
               <TriangleAlert className="size-5 shrink-0" aria-hidden />
               {problemText}
             </p>
