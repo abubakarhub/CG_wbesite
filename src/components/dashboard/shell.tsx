@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
@@ -8,6 +9,21 @@ import { cn } from "@/lib/utils";
 import { jobOf, useAllJobs } from "./job-store";
 import { ToastProvider } from "./toasts";
 import { ColorKey, toneTextClass } from "./ui";
+
+function BackToSite({ className }: { className?: string }) {
+  return (
+    <Link
+      href="/"
+      className={cn(
+        "tap inline-flex items-center gap-2 rounded-full border border-ink px-4 font-semibold text-ink transition-colors hover:bg-ink hover:text-bone",
+        className,
+      )}
+    >
+      <ArrowLeft className="size-4 shrink-0" aria-hidden />
+      Back to main website
+    </Link>
+  );
+}
 
 function JobNav() {
   const pathname = usePathname();
@@ -26,6 +42,7 @@ function JobNav() {
 
   return (
     <nav aria-label="Jobs" className="grid grid-cols-2 gap-2 p-3 lg:sticky lg:top-0 lg:flex lg:flex-col">
+      <BackToSite className="col-span-2 mb-1 justify-center lg:w-full" />
       {links.map((item) => {
         const active = pathname === item.href;
         return (
@@ -61,8 +78,12 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             <JobNav />
           </Suspense>
         </aside>
-        <main id="main" className="min-w-0 px-4 py-6 md:px-8 md:py-8">
+        <main id="main" className="min-w-0 px-4 pt-6 pb-24 md:px-8 md:pt-8">
           <ToastProvider>{children}</ToastProvider>
+          <footer className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-6">
+            <p className="text-slate-ink">Cross Point Construction · Project dashboard (demo)</p>
+            <BackToSite />
+          </footer>
         </main>
       </div>
     </div>
